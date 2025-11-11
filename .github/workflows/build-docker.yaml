@@ -13,4 +13,5 @@ jobs:
         run: docker build -f src/main/docker/Dockerfile.jvm -t arnaldosena/izizi:latest .
       - name: push image to docker hub
         run: |
+          docker login -u arnaldosena -p ${{ secrets.DOCKER_HUB_SECRET }}
           docker push arnaldosena/izizi:latest
