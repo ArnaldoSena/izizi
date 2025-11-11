@@ -6,11 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
       - name: maven package
         run: ./mvnw package -DskipTests
       - name: docker build image
-        run: docker build -f src/main/docker/Dockerfile.jvm -t izizi:latest .
+        run: docker build -f src/main/docker/Dockerfile.jvm -t izizi:latest
       - name: push image to docker hub
         run: |
           docker push arnaldosena/izizi:latest
