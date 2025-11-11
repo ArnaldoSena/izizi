@@ -7,5 +7,7 @@ jobs:
     steps:
       - name: checkout
       - uses: actions/checkout@v4
+      - name: maven package
+      - run: ./mvnw package -DskipTests
       - name: docker build image
-        run: docker build ./src/main/docker --file Dockerfile --tag izizi:$(date +%s)
+        run: docker build -f src/main/docker/Dockerfile.jvm -t izizi:$(date +%s) .
