@@ -10,7 +10,7 @@ jobs:
       - name: maven package
         run: ./mvnw clean package -DskipTests
       - name: docker build image
-        run: docker build -f src/main/docker/Dockerfile.jvm -t izizi:latest .
+        run: docker build -f src/main/docker/Dockerfile.jvm -t arnaldosena/izizi:latest .
       - name: push image to docker hub
         run: |
           docker push arnaldosena/izizi:latest
